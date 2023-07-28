@@ -1,0 +1,43 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 1rem;
+  background-color: rgb(14, 13, 13);
+  min-height: 100vh;
+  color: whitesmoke;
+  .textsContainer {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-weight: 600;
+    }
+  }
+ 
+
+  .readingViewButton {
+    width: max-content;
+    font-weight: 700;
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    background-color: lightgray;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 1rem;
+    transition: background 300ms ease;
+
+    &:hover {
+      background-color: rgba(211, 211, 211, 0.822);
+    }
+  }
+
+  
+}
