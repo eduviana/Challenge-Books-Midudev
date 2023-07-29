@@ -10,11 +10,13 @@ const BooksContextProvider = ({ children }) => {
   const [inputPage, setInputPage] = useState(0);
   const [selectValue, setSelectValue] = useState("");
   const { minValue, maxValue } = getPages(books);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
   const [readingViewOpen, setReadingViewOpen] = useState(false);
   const uniqueGenres = getUniqueGenres(books);
 
   const [booksFiltered, setBooksFiltered] = useState([]);
+
+ 
 
   const applyFilters = () => {
     let filteredBooks = [...books]; // Crear una copia de los libros para no modificar el estado original
@@ -33,6 +35,7 @@ const BooksContextProvider = ({ children }) => {
 
     if (selectValue === "all") {
       setBooksFiltered(books);
+      return;
     }
     setBooksFiltered(filteredBooks);
   };
@@ -40,6 +43,24 @@ const BooksContextProvider = ({ children }) => {
   useEffect(() => {
     applyFilters();
   }, [inputPage, selectValue, books]);
+
+
+
+
+
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    window.dispatchEvent(new Event("storage", { key: "favorites" }));
+  }, [favorites]);
+
+
+  
+
+
+
+
+
 
   const removeBookFromList = (book) => {
     const updatedList = booksFiltered.filter(
@@ -62,8 +83,6 @@ const BooksContextProvider = ({ children }) => {
         setInputPage,
         selectValue,
         setSelectValue,
-        minValue,
-        maxValue,
         favorites,
         setFavorites,
         readingViewOpen,
@@ -72,7 +91,10 @@ const BooksContextProvider = ({ children }) => {
         booksFiltered,
         setBooksFiltered,
         removeBookFromList,
-        addBookToAvailable
+        addBookToAvailable,
+        minValue,
+        maxValue,
+
       }}
     >
       {children}

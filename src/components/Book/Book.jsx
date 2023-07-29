@@ -1,43 +1,10 @@
-// import useBooksContext from "../../hooks/useBooksContext";
-// import "./book.scss";
-
-// const Book = ({ book, setBooksFiltered }) => {
-//   const { favorites, setFavorites } = useBooksContext();
-
-//   const isBookInFavorites = favorites.some(
-//     (favBook) => favBook.title === book.title
-//   );
-
-//   const handleFavorites = () => {
-//     if (isBookInFavorites) {
-//       setFavorites((prevFavorites) =>
-//         prevFavorites.filter((favBook) => favBook.title !== book.title)
-//       );
-//     } else {
-//       setFavorites((prevFavorites) => [...prevFavorites, book]);
-//     }
-//   };
-
-//   return (
-//     <div className="cardContainer">
-//       <img src={book.cover} alt={book.title} />
-//       <button
-//         className={`cardButton ${isBookInFavorites ? "removeBook" : ""}`}
-//         onClick={() => handleFavorites()}
-//       >
-//         {isBookInFavorites ? "Quitar de la lista" : "Añadir Libro +"}
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default Book;
-
+import { Link } from "react-router-dom";
 import useBooksContext from "../../hooks/useBooksContext";
 import "./book.scss";
 
 const Book = ({ book }) => {
-  const { favorites, setFavorites, removeBookFromList, addBookToAvailable } = useBooksContext();
+  const { favorites, setFavorites, removeBookFromList, addBookToAvailable } =
+    useBooksContext();
 
   const isBookInFavorites = favorites.some(
     (favBook) => favBook.title === book.title
@@ -48,8 +15,7 @@ const Book = ({ book }) => {
       setFavorites((prevFavorites) =>
         prevFavorites.filter((favBook) => favBook.title !== book.title)
       );
-      addBookToAvailable(book)
-      
+      addBookToAvailable(book);
     } else {
       setFavorites((prevFavorites) => [...prevFavorites, book]);
       removeBookFromList(book); // Remueve el libro de setBooksFiltered si está en favoritos
@@ -59,12 +25,17 @@ const Book = ({ book }) => {
   return (
     <div className="cardContainer">
       <img src={book.cover} alt={book.title} />
-      <button
-        className={`cardButton ${isBookInFavorites ? "removeBook" : ""}`}
-        onClick={handleFavorites}
-      >
-        {isBookInFavorites ? "Quitar de la lista" : "Añadir Libro +"}
-      </button>
+      <div className="cardOptions">
+        <button className="viewMore">
+          <Link to={`/book/${book.title}`}>Ver más</Link>
+        </button>
+        <button
+          className={`addBook ${isBookInFavorites ? "removeBook" : ""}`}
+          onClick={handleFavorites}
+        >
+          {isBookInFavorites ? "Quitar de la lista" : "Añadir Libro +"}
+        </button>
+      </div>
     </div>
   );
 };
