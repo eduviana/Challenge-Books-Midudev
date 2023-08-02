@@ -1,4 +1,4 @@
-import useBooksContext from "../../hooks/useBooksContext";
+import React from 'react'
 import Book from "../Book/Book";
 import "./booksAvailable.scss";
 
@@ -12,7 +12,7 @@ const BooksAvailable = ({ booksFiltered, setBooksFiltered, selectValue }) => {
         {booksFiltered.length > 0 ? (
           <>
             <span>Disponibles: {booksFiltered.length} libros</span>
-            <div className="gridAvailableContainer">
+            <div className="gridAvailableContainer" data-testid="grid-container">
               {booksFiltered.map(({ book }) => (
                 <Book key={Math.random(book.ISBN + Date.now())} book={book} setBooksFiltered={setBooksFiltered}/>
               ))}

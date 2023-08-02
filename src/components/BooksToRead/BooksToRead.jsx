@@ -1,3 +1,4 @@
+import React from "react";
 import useBooksContext from "../../hooks/useBooksContext";
 import Book from "../Book/Book";
 import "./booksToRead.scss";
@@ -11,11 +12,7 @@ const BooksToRead = () => {
       <div className="gridToReadContainer">
         {favorites.length > 0 ? (
           favorites.map((book) => (
-            <Book
-              key={Math.random(book.ISBN + Date.now())}
-              book={book}
-              
-            />
+            <Book key={book.title || ""} book={book}/>
           ))
         ) : (
           <p>No hay libros agregados.</p>
@@ -25,7 +22,4 @@ const BooksToRead = () => {
   );
 };
 export default BooksToRead;
-
-
-
 

@@ -9,17 +9,27 @@ const BooksContextProvider = ({ children }) => {
   const [books] = useState(dataBooks.library);
   const [inputPage, setInputPage] = useState(0);
   const [selectValue, setSelectValue] = useState("");
-  const { minValue, maxValue } = getPages(books);
-  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
+  // const { minValue, maxValue } = getPages(books);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
   const [readingViewOpen, setReadingViewOpen] = useState(false);
   const uniqueGenres = getUniqueGenres(books);
 
-  const [booksFiltered, setBooksFiltered] = useState([]);
+  const [booksFiltered, setBooksFiltered] = useState(
+    JSON.parse(localStorage.getItem("booksFiltered")) || []
+  );
 
- 
+  useEffect(() => {
+    applyFilters();
+  }, [inputPage, selectValue, books]);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   const applyFilters = () => {
-    let filteredBooks = [...books]; // Crear una copia de los libros para no modificar el estado original
+    let filteredBooks = [...books];
 
     if (inputPage !== 0) {
       filteredBooks = filteredBooks.filter(
@@ -37,43 +47,25 @@ const BooksContextProvider = ({ children }) => {
       setBooksFiltered(books);
       return;
     }
-    setBooksFiltered(filteredBooks);
+
+    // Exclude books that are in favorites from the filteredBooks
+    const filteredBooksExcludingFavorites = filteredBooks.filter(
+      ({ book }) => !favorites.some((favBook) => favBook.title === book.title)
+    );
+
+    setBooksFiltered(filteredBooksExcludingFavorites);
   };
-
-  useEffect(() => {
-    applyFilters();
-  }, [inputPage, selectValue, books]);
-
-
-
-
-
-
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    window.dispatchEvent(new Event("storage", { key: "favorites" }));
-  }, [favorites]);
-
-
-  
-
-
-
-
-
 
   const removeBookFromList = (book) => {
     const updatedList = booksFiltered.filter(
       (item) => item.book.title != book.title
     );
     setBooksFiltered(updatedList);
-    console.log("conteext");
   };
 
   const addBookToAvailable = (book) => {
-   
-    setBooksFiltered((prevBooks) => [...prevBooks, {book}]);
-  }
+    setBooksFiltered((prevBooks) => [...prevBooks, { book }]);
+  };
 
   return (
     <BooksContext.Provider
@@ -92,9 +84,8 @@ const BooksContextProvider = ({ children }) => {
         setBooksFiltered,
         removeBookFromList,
         addBookToAvailable,
-        minValue,
-        maxValue,
-
+        // minValue,
+        // maxValue,
       }}
     >
       {children}

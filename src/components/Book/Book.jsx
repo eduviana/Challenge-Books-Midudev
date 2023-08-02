@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from "react-router-dom";
 import useBooksContext from "../../hooks/useBooksContext";
 import "./book.scss";
@@ -23,7 +24,7 @@ const Book = ({ book }) => {
   };
 
   return (
-    <div className="cardContainer">
+    <div className="cardContainer" data-testid="book-component">
       <img src={book.cover} alt={book.title} />
       <div className="cardOptions">
         <button className="viewMore">
