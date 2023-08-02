@@ -25,21 +25,21 @@ Usa el archivo `books.json` para obtener los datos de los libros. Puedes añadir
 
 ### Funcionalidad
 
-1. **Visualización de Libros Disponibles**: La aplicación debe mostrar una lista de libros disponibles que el usuario pueda revisar. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+1. **Visualización de Libros Disponibles**: La aplicación debe mostrar una lista de libros disponibles que el usuario pueda revisar. **Hecho**.
 
-2. **Creación de Lista de Lectura**: El usuario debe ser capaz de crear una lista de lectura a partir de los libros disponibles. En la UI debe quedar claro qué libros están en la lista de lectura y cuáles no. También debe ser posible mover un libro de la lista de lectura a la lista de disponibles. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+2. **Creación de Lista de Lectura**: El usuario debe ser capaz de crear una lista de lectura a partir de los libros disponibles. En la UI debe quedar claro qué libros están en la lista de lectura y cuáles no. También debe ser posible mover un libro de la lista de lectura a la lista de disponibles. **Hecho**.
 
-3. **Filtrado de Libros por Género**: Los usuarios deben poder filtrar la lista de libros disponibles por género, y se mostrará un contador con el número de libros disponibles, el número de libros en la lista de lectura y el número de libros disponibles en el género seleccionado. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+3. **Filtrado de Libros por Género**: Los usuarios deben poder filtrar la lista de libros disponibles por género, y se mostrará un contador con el número de libros disponibles, el número de libros en la lista de lectura y el número de libros disponibles en el género seleccionado. **Hecho**.
 
-4. **Sincronización de Estado**: Debe haber una sincronización del estado global que refleje el número de libros en la lista de lectura y el número de libros todavía disponibles. Si un libro se mueve de la lista de disponibles a la lista de lectura, el recuento de ambos debe actualizarse en consecuencia. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+4. **Sincronización de Estado**: Debe haber una sincronización del estado global que refleje el número de libros en la lista de lectura y el número de libros todavía disponibles. Si un libro se mueve de la lista de disponibles a la lista de lectura, el recuento de ambos debe actualizarse en consecuencia. **Hecho**.
 
-5. **Persistencia de Datos**: La aplicación debe persistir los datos de la lista de lectura en el almacenamiento local del navegador. Al recargar la página, la lista de lectura debe mantenerse. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+5. **Persistencia de Datos**: La aplicación debe persistir los datos de la lista de lectura en el almacenamiento local del navegador. Al recargar la página, la lista de lectura debe mantenerse. **Hecho**.
 
-6. **Sincronización entre pestañas**: Si el usuario abre la aplicación en dos pestañas diferentes, los cambios realizados en una pestaña deben reflejarse en la otra. Sin necesidad de usar Backend. <span style="color:white; background:red; padding: 4px; border-radius: 10px">Falta</span>
+6. **Sincronización entre pestañas**: Si el usuario abre la aplicación en dos pestañas diferentes, los cambios realizados en una pestaña deben reflejarse en la otra. Sin necesidad de usar Backend. **Falta**.
 
-7. **Despliegue**: La aplicación debe estar desplegada en algún servicio de hosting gratuito (Netlify, Vercel, Firebase, etc) y debe ser accesible a través de una URL pública. Indica la URL en el README. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+7. **Despliegue**: La aplicación debe estar desplegada en algún servicio de hosting gratuito (Netlify, Vercel, Firebase, etc) y debe ser accesible a través de una URL pública. Indica la URL en el README. **Hecho**.
 
-8. **Test**: La aplicación debe tener AL MENOS un test. Haz el test que consideres más importante para tu aplicación. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+8. **Test**: La aplicación debe tener AL MENOS un test. Haz el test que consideres más importante para tu aplicación. **Hecho**.
 
 ## Consejos sobre el código
 
@@ -57,10 +57,10 @@ Usa el archivo `books.json` para obtener los datos de los libros. Puedes añadir
 
 **¿Quieres ir más allá?** Estos son algunos desafíos adicionales que puedes intentar:
 
-- Implementar una funcionalidad de búsqueda en la lista de libros disponibles. <span style="color:white; background:red; padding: 4px; border-radius: 10px">Falta</span>
-- Añade un nuevo filtro para filtrar los libros por número de páginas. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
-- Permitir la reorganización de los libros en la lista de lectura por prioridad. <span style="color:white; background:red; padding: 4px; border-radius: 10px">Falta</span>
-- Haz que tu diseño sea responsive. <span style="color:white; background:green; padding: 4px; border-radius: 10px">Hecho</span>
+- Implementar una funcionalidad de búsqueda en la lista de libros disponibles. **Falta**.
+- Añade un nuevo filtro para filtrar los libros por número de páginas. **Hecho**.
+- Permitir la reorganización de los libros en la lista de lectura por prioridad. **Falta**.
+- Haz que tu diseño sea responsive. **Hecho**.
 
 ## Entrevista
 
